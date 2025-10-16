@@ -34,6 +34,10 @@ public class ControlVista implements ISuscriptor {
         this.control = control;
     }
 
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
     public List<Cliente> getClientes() {
         return clientes;
     }

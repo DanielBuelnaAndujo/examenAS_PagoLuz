@@ -1,6 +1,6 @@
 package modelo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  *
@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 public class DatosConsumo {
     
     private int kWh;
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private double promedioKWh;
     private int dias;
 
-    public DatosConsumo(int kWh, LocalDateTime fechaInicio, LocalDateTime fechaFin, double promedioKWh, int dias) {
+    public DatosConsumo(int kWh, LocalDate fechaInicio, LocalDate fechaFin, double promedioKWh, int dias) {
         this.kWh = kWh;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -30,19 +30,19 @@ public class DatosConsumo {
         this.kWh = kWh;
     }
 
-    public LocalDateTime getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDateTime fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDateTime getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDateTime fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
