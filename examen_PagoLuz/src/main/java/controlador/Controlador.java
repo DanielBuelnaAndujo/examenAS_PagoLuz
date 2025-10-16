@@ -16,6 +16,9 @@ public class Controlador implements IControlador {
         this.modelo = modelo;
     }
     
+    // A falta de DTOs (no necesarias por el momento), los métodos de Controlador
+    // solo sirven como un intermediario entre Vista y Modelo. Es por esto que
+    // pasa los datos directamente o solo los que necesita.
     @Override
     public void realizarPago(Cliente cliente, Tarjeta tarjeta) {
         modelo.realizarPago(cliente, tarjeta);

@@ -19,10 +19,13 @@ public class Pago implements IModelo {
         this.suscriptores = suscriptores;
     }
     
+    // Método para suscribir a Vista.
     public void addSuscriptor(ISuscriptor suscriptor){
         suscriptores.add(suscriptor);
     }
     
+    // Método para simular un pago con una infraestructura, en este caso un Banco.
+    // Se notifica a cada suscriptor el Recibo generado según el Pago.
     @Override
     public void realizarPago(Cliente cliente, Tarjeta tarjeta) {
         boolean resultado = banco.pagar(tarjeta);
@@ -37,6 +40,8 @@ public class Pago implements IModelo {
         }
     }
 
+    // Método para simular la obtención de datos de una Base de Datos.
+    // Se notifica a cada suscriptor los Clientes obtenidos.
     @Override
     public void buscarClientes(String numero) {
         List<Cliente> clientes = baseDatos.obtenerClientesPorNumero(numero);

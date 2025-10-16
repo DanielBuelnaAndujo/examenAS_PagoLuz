@@ -22,6 +22,8 @@ public class ControlVista implements ISuscriptor {
     private ControlVista() {
     }
 
+    // ControlVista es un Singleton para forzar a que solo haya 1 intancia
+    // y que no haya problemas por los atributos importantes que contiene.
     public static ControlVista getInstancia() {
         if (controlVista == null) {
             controlVista = new ControlVista();
@@ -81,11 +83,16 @@ public class ControlVista implements ISuscriptor {
     }
 
     // Metodos de la interfaz ISuscriptor
+    // Observer debe tener minimo 1 método en su interfaz suscriptora,
+    // asi que agregue 2 según el cambio que debe hacer la vista.
+    
+    // Método para mostrar el Recibo de Pago en el FrmRecibo.
     @Override
     public void actualizarRecibo(Recibo recibo) {
         this.recibo = recibo;
     }
 
+    // Método para mostrar los Clientes en el Panel contenedor de FrmClientes.
     @Override
     public void actualizarClientes(List<Cliente> clientes) {
         clientes.forEach(c -> System.out.println(c.getNumeroServicio()));
