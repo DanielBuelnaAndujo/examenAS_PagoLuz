@@ -1,5 +1,6 @@
 package vista;
 
+import java.time.format.DateTimeFormatter;
 import modelo.Recibo;
 
 /**
@@ -16,8 +17,10 @@ public class FrmRecibo extends javax.swing.JFrame {
         
         Recibo recibo = ControlVista.getInstancia().getRecibo();
         
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        lblFecha.setText(recibo.getFecha().format(formatter));
+        
         lblMonto.setText(String.valueOf(recibo.getMonto()));
-        lblFecha.setText(recibo.getFecha().toString());
         lblNombre.setText(recibo.getCliente().getNombre());
         lblApellidoPaterno.setText(recibo.getCliente().getApellidoPaterno());
         lblApellidoMaterno.setText(recibo.getCliente().getApellidoMaterno());

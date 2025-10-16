@@ -30,7 +30,7 @@ public class BaseDatos {
     }
     
     public List<Cliente> obtenerClientesPorNumero(String numero) {
-        List<Cliente> resultado = clientes.stream().filter(c -> c.getNumeroServicio().equals(numero))
+        List<Cliente> resultado = clientes.stream().filter(c -> c.getNumeroServicio().startsWith(numero))
                 .collect(Collectors.toList());
         
         return resultado;
