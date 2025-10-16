@@ -73,6 +73,10 @@ public class ControlVista implements ISuscriptor {
     }
     
     public void mostrarFrmRecibo() {
+        if (recibo == null) {
+            return;
+        }
+        
         new FrmRecibo().setVisible(true);
     }
 
@@ -84,6 +88,7 @@ public class ControlVista implements ISuscriptor {
 
     @Override
     public void actualizarClientes(List<Cliente> clientes) {
+        clientes.forEach(c -> System.out.println(c.getNumeroServicio()));
         this.clientes = clientes;
     }
 }

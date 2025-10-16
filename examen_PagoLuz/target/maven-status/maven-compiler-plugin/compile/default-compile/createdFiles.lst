@@ -9,6 +9,7 @@ vista\FrmPago$2.class
 itson\org\examen_pagoluz\Examen_PagoLuz.class
 vista\ControlVista.class
 vista\PnlCliente$1.class
+modelo\Banco.class
 modelo\Recibo.class
 modelo\ISuscriptor.class
 vista\PnlCliente.class

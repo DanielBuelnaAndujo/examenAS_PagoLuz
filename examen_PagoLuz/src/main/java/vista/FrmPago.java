@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.Cliente;
+import modelo.DatosConsumo;
 import modelo.Tarjeta;
 
 /**
@@ -15,6 +15,14 @@ public class FrmPago extends javax.swing.JFrame {
     public FrmPago() {
         initComponents();
         
+        DatosConsumo d = ControlVista.getInstancia().getCliente().getDatosConsumo();
+        
+        lblKWh.setText(String.valueOf(d.getkWh()));
+        lblFechaFin.setText(d.getFechaInicio().toString());
+        lblFechaInicio.setText(d.getFechaInicio().toString());
+        lblPromedioKWh.setText(String.valueOf(d.getPromedioKWh()));
+        lblDias.setText(String.valueOf(d.getDias()));
+        lblMonto.setText(String.valueOf(d.getMonto()));
     }
 
     /**

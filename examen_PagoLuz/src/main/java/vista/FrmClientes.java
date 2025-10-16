@@ -1,7 +1,9 @@
 package vista;
 
+import java.util.List;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import modelo.Cliente;
 
 /**
  *
@@ -122,16 +124,12 @@ public class FrmClientes extends javax.swing.JFrame {
         txfNumero.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                ControlVista c = ControlVista.getInstancia();
-                c.buscarClientes(txfNumero.getText());
-                c.getClientes().forEach(cl -> pnlContenedor.add(new PnlCliente(cl)));
+                addClientes();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                ControlVista c = ControlVista.getInstancia();
-                c.buscarClientes(txfNumero.getText());
-                c.getClientes().forEach(cl -> pnlContenedor.add(new PnlCliente(cl)));
+                addClientes();
             }
 
             @Override
@@ -154,6 +152,20 @@ public class FrmClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addClientes() {
+        ControlVista c = ControlVista.getInstancia();
+        c.buscarClientes(txfNumero.getText());
+        
+        List<Cliente> clientes = c.getClientes();
+        
+        pnlContenedor.removeAll();
+        for (Cliente cliente : clientes) {
+            pnlContenedor.add(new PnlCliente(cliente));
+        }
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }
+    
     /**
      * @param args the command line arguments
      */

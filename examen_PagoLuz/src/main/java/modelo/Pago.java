@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -9,18 +10,31 @@ import java.util.List;
 public class Pago implements IModelo {
     
     private BaseDatos baseDatos;
+    private Banco banco;
     private List<ISuscriptor> suscriptores;
 
-    public Pago(BaseDatos baseDatos, List<ISuscriptor> suscriptores) {
+    public Pago(BaseDatos baseDatos, Banco banco, List<ISuscriptor> suscriptores) {
         this.baseDatos = baseDatos;
+        this.banco = banco;
         this.suscriptores = suscriptores;
     }
     
+    public void addSuscriptor(ISuscriptor suscriptor){
+        suscriptores.add(suscriptor);
+    }
+    
     @Override
-    public Recibo realizarPago(Cliente cliente, Tarjeta tarjeta) {
+    public void realizarPago(Cliente cliente, Tarjeta tarjeta) {
+        boolean resultado = banco.pagar(tarjeta);
         
-        
-        return null;
+        if (resultado) {
+            suscriptores.forEach(s -> s.actualizarRecibo(new Recibo(
+                    LocalDateTime.now(), 
+                    cliente.getDatosConsumo().getMonto(), 
+                    cliente)));
+        } else {
+            suscriptores.forEach(s -> s.actualizarRecibo(null));
+        }
     }
 
     @Override

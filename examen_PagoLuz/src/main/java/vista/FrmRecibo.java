@@ -16,7 +16,7 @@ public class FrmRecibo extends javax.swing.JFrame {
         
         Recibo recibo = ControlVista.getInstancia().getRecibo();
         
-        lblFecha.setText(String.valueOf(recibo.getMonto()));
+        lblMonto.setText(String.valueOf(recibo.getMonto()));
         lblFecha.setText(recibo.getFecha().toString());
         lblNombre.setText(recibo.getCliente().getNombre());
         lblApellidoPaterno.setText(recibo.getCliente().getApellidoPaterno());

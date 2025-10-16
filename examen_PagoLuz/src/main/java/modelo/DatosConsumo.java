@@ -13,13 +13,15 @@ public class DatosConsumo {
     private LocalDate fechaFin;
     private double promedioKWh;
     private int dias;
+    private double monto;
 
-    public DatosConsumo(int kWh, LocalDate fechaInicio, LocalDate fechaFin, double promedioKWh, int dias) {
+    public DatosConsumo(int kWh, LocalDate fechaInicio, LocalDate fechaFin, double promedioKWh, int dias, double monto) {
         this.kWh = kWh;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.promedioKWh = promedioKWh;
         this.dias = dias;
+        this.monto = monto;
     }
 
     public int getkWh() {
@@ -60,6 +62,14 @@ public class DatosConsumo {
 
     public void setDias(int dias) {
         this.dias = dias;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
     
 }
